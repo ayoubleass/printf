@@ -2,6 +2,9 @@
 
 int print_Binary(unsigned int num) {
 	int size = 0;
+	int i;
+	int max_digits;
+	int *bits;
 
 	if (num == 0)
 	{
@@ -10,14 +13,14 @@ int print_Binary(unsigned int num) {
         	return (size);
 	}
 
-	int max_digits = sizeof(num) * 8;
-	int *bits = malloc(max_digits * sizeof(int));
+	max_digits = sizeof(num) * 8;
+	bits = malloc(max_digits * sizeof(int));
 
 	if (bits == NULL)
 	{
 		return (-1);
 	}
-	int i = 0;
+	i = 0;
     	
 	while (num > 0)
 	{
