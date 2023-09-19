@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			specifier = *format;
-			if (args)
+			if (args != NULL)
 			{ 
 				switch (*format)
 				{
