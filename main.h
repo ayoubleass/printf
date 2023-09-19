@@ -8,7 +8,7 @@
 int _putchar(char c);
 int getIntSize(int num);
 int _printf(const char *format, ...);
-void printString(char *s);
-void print_Integer(int num);
+int printString(char *s);
+int print_Integer(int num);
 
 #endif

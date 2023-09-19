@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 			{
 				case 's':
 				s = va_arg(args, char *);
-				printString(s);
+				size+= printString(s);
 				break;
 				case 'c':
 				c = va_arg(args, int);
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 				case 'd':
 				case 'i':
 				i = va_arg(args, int);
-				print_Integer(i);
+				size += print_Integer(i);
 				break;
 			}
 		}
@@ -61,12 +61,12 @@ int _printf(const char *format, ...)
  * @s: The input string to print.
  */
 
-void printString(char *s)
+int printString(char *s)
 {
 	if (*s != '\0')
 	{
 		_putchar(*s);
-		printString(s + 1);
+		return 1 + printString(s + 1);
 	}
 }
 
@@ -76,10 +76,11 @@ void printString(char *s)
  */
 
 
-void print_Integer(int num)
+int print_Integer(int num)
 {
 	int i = 0;
 	int numSize = 0;
+	int size;
 
 	if (num < 0)
 	{
@@ -90,7 +91,8 @@ void print_Integer(int num)
 	if (num == 0)
 	{
 		_putchar('0');
-		return;
+		size++;
+		return size;
 	}
 
 	numSize = getIntSize(num);
@@ -98,6 +100,7 @@ void print_Integer(int num)
 	if (numSize == 1)
 	{
 		_putchar(num + '0');
+		size++;
 	}
 	else
 	{
@@ -115,10 +118,12 @@ void print_Integer(int num)
 			{
 				i--;
 				_putchar(buffer[i] + '0');
+				size++;
 			}
 			free(buffer);
 		}
 	}
+	return (size);
 }
 
 
