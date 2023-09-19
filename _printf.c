@@ -36,16 +36,19 @@ int _printf(const char *format, ...)
 			{
 				case 's':
 				s = va_arg(args, char *);
-				size += printString(s);
+				if (s)
+					size += printString(s);
 				break;
 				case 'c':
 				c = va_arg(args, int);
-				_putchar(c);
+				if (c)
+					_putchar(c);
 				break;
 				case 'd':
 				case 'i':
 				i = va_arg(args, int);
-				size += print_Integer(i);
+				if (i)
+					size += print_Integer(i);
 				break;
 			}
 		}
@@ -66,6 +69,7 @@ int _printf(const char *format, ...)
 /**
  * printString - Print a string character by character.
  * @s: The input string to print.
+ * Return: the size of the sring
  */
 
 int printString(char *s)
@@ -81,6 +85,7 @@ int printString(char *s)
 /**
  * print_Integer - Print an integer to the standard output.
  * @num: The integer to print.
+ * Return: the size of the sring
  */
 
 
