@@ -54,6 +54,9 @@ int _printf(const char *format, ...)
 						_putchar('%');
 						size++;
 						break;
+					case 'b':
+						size += print_Binary(va_arg(args, unsigned int));
+						break;
 					default :
 						_putchar('%');
 						size++;
