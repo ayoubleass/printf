@@ -19,6 +19,7 @@ int _printf(const char *format, ...)
 	char c;
 	int i;
 	int size = 0;
+	char specifier;
 
 	va_start(args, format);
 
@@ -27,6 +28,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			specifier = *format;
 			switch (*format)
 			{
 				case 's':
@@ -48,7 +50,9 @@ int _printf(const char *format, ...)
 		{
 			_putchar(*format);
 		}
-		size++;
+
+		if(specifier != *format &&  *format != '%')
+			size++;
 		format++;
 	}
 	va_end(args);
@@ -82,6 +86,7 @@ int print_Integer(int num)
 	int i = 0;
 	int numSize = 0;
 	int size = 0;
+	int *buffer;
 
 	if (num < 0)
 	{
@@ -97,33 +102,24 @@ int print_Integer(int num)
 	}
 
 	numSize = getIntSize(num);
+	buffer = malloc(sizeof(int) * numSize);
 
-	if (numSize == 1)
+	if (buffer == NULL)
+		return (0);
+
+	while (i < numSize)
 	{
-		_putchar(num + '0');
+		buffer[i] = num % 10;
+		num /= 10;
+		i++;
+	}
+	while (i > 0)
+	{
+		i--;
+		_putchar(buffer[i] + '0');
 		size++;
 	}
-	else
-	{
-		int *buffer = malloc(sizeof(int) * numSize);
-
-		if (buffer != NULL)
-		{
-			while (i < numSize)
-			{
-				buffer[i] = num % 10;
-				num /= 10;
-				i++;
-			}
-			while (i > 0)
-			{
-				i--;
-				_putchar(buffer[i] + '0');
-				size++;
-			}
-			free(buffer);
-		}
-	}
+	free(buffer);
 	return (size);
 }
 
