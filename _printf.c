@@ -1,12 +1,18 @@
 #include "main.h"
 
+/**
+ * _printf - Custom implementation of printf function ,
+ * with limited format specifiers.
+ * @format: The format string containing format specifiers.
+ * Return: The number of characters printed.
+ */
 
 
 
 
 
 
-int _printf(char *str, ...)
+int _printf(const char *format, ...)
 {
 	va_list args;
 	char specifier;
@@ -16,17 +22,13 @@ int _printf(char *str, ...)
 	int size = 0;
 
 	va_start(args, str);
-	while (*str != '\0')
-	{
-		if (*str == '%')
-		{
-			str++;
-			if (*str >= 'a' && *str <= 'z')
-			{
-				specifier = *str;
-			}
 
-			switch (specifier)
+	while (*format != '\0')
+	{
+		if (*format == '%')
+		{
+			format++;
+			switch (*format)
 			{
 				case 's':
 				s = va_arg(args, char *);
@@ -43,8 +45,7 @@ int _printf(char *str, ...)
 				break;
 			}
 		}
-
-		if (*str != specifier)
+		else
 		{
 			_putchar(*str);
 		}
@@ -56,6 +57,10 @@ int _printf(char *str, ...)
 }
 
 
+/**
+ * printString - Print a string character by character.
+ * @s: The input string to print.
+ */
 
 void printString(char *s)
 {
@@ -66,6 +71,10 @@ void printString(char *s)
 	}
 }
 
+/**
+ * print_Integer - Print an integer to the standard output.
+ * @num: The integer to print.
+ */
 
 
 void print_Integer(int num)
@@ -94,7 +103,7 @@ void print_Integer(int num)
 	else
 	{
 		int *buffer = malloc(sizeof(int) * numSize);
-	
+
 		if (buffer != NULL)
 		{
 			while (i < numSize)
@@ -114,6 +123,12 @@ void print_Integer(int num)
 }
 
 
+/**
+ * getIntSize - Get the number of digits in an integer.
+ * @num: The input integer.
+ * Return: The number of digits in the integer.
+ */
+
 
 int getIntSize(int num)
 {
@@ -123,6 +138,12 @@ int getIntSize(int num)
 		return (1);
 
 	return (1 + getIntSize(num / 10));
+
 }
 
+/**
+ * _putchar - Write a character to the standard output.
+ * @c: The character to write.
+ * Return: On success, returns 1; on failure, returns -1.
+ */
 int _putchar(char c) { return (write(1, &c, 1)); }

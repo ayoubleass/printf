@@ -7,7 +7,7 @@
 #include <unistd.h>
 int _putchar(char c);
 int getIntSize(int num);
-int _printf(char *str, ...);
+int _printf(const char *format, ...);
 void printString(char *s);
 void print_Integer(int num);
 
