@@ -66,8 +66,9 @@ int printString(char *s)
 	if (*s != '\0')
 	{
 		_putchar(*s);
-		return 1 + printString(s + 1);
+		return (1 + printString(s + 1));
 	}
+	return (0);
 }
 
 /**
@@ -80,7 +81,7 @@ int print_Integer(int num)
 {
 	int i = 0;
 	int numSize = 0;
-	int size;
+	int size = 0;
 
 	if (num < 0)
 	{
