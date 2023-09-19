@@ -37,17 +37,28 @@ int _printf(const char *format, ...)
 				switch (*format)
 				{
 					case 's':
-					s = va_arg(args, char *);
-					size += printString(s);
-					break;
+						s = va_arg(args, char *);
+						size += printString(s);
+						break;
 					case 'c':
-					c = va_arg(args, int);
-					_putchar(c);
-					break;
-					case 'd':
+						c = va_arg(args, int);
+						_putchar(c);
+						size++;
+						break;
+					case 'd': 
 					case 'i':
-					i = va_arg(args, int);
-					size += print_Integer(i);
+						i = va_arg(args, int);
+						size += print_Integer(i);
+						break;
+					case '%':
+						_putchar('%');
+						size++;
+						break;
+					default :
+					_putchar('%');
+					size++;
+					_putchar(*format);
+					size++;
 					break;
 				}
 			}
