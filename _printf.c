@@ -32,6 +32,8 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			specifier = *format; 
+			if (args != NULL)
+			{
 				switch (*format)
 				{
 					case 's':
@@ -59,6 +61,7 @@ int _printf(const char *format, ...)
 					size++;
 					break;
 				}
+			}
 		}
 		else
 		{
