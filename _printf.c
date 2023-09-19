@@ -32,24 +32,24 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			specifier = *format;
-			switch (*format)
-			{
-				case 's':
-				s = va_arg(args, char *);
-				if (s)
+			if (args)
+			{ 
+				switch (*format)
+				{
+					case 's':
+					s = va_arg(args, char *);
 					size += printString(s);
-				break;
-				case 'c':
-				c = va_arg(args, int);
-				if (c)
+					break;
+					case 'c':
+					c = va_arg(args, int);
 					_putchar(c);
-				break;
-				case 'd':
-				case 'i':
-				i = va_arg(args, int);
-				if (i)
+					break;
+					case 'd':
+					case 'i':
+					i = va_arg(args, int);
 					size += print_Integer(i);
-				break;
+					break;
+				}
 			}
 		}
 		else
