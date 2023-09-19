@@ -31,9 +31,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			specifier = *format;
-			if (args != NULL)
-			{ 
+			specifier = *format; 
 				switch (*format)
 				{
 					case 's':
@@ -61,11 +59,11 @@ int _printf(const char *format, ...)
 					size++;
 					break;
 				}
-			}
 		}
 		else
 		{
 			_putchar(*format);
+			size++;
 		}
 
 		if (specifier != *format)
