@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 	int i;
 	int size = 0;
 
-	va_start(args, str);
+	va_start(args, format);
 
 	while (*format != '\0')
 	{
@@ -47,10 +47,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(*str);
+			_putchar(*format);
 		}
 		size++;
-		str++;
+		format++;
 	}
 	va_end(args);
 	return (size);
