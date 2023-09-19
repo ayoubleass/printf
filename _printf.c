@@ -15,7 +15,6 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	char specifier;
 	char *s;
 	char c;
 	int i;
