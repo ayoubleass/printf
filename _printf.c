@@ -110,7 +110,7 @@ int print_Integer(int num)
 	if (num < 0)
 	{
 		_putchar('-');
-		sier++;
+		size++;
 		num = -num;
 	}
 
