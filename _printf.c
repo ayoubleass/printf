@@ -55,11 +55,11 @@ int _printf(const char *format, ...)
 						size++;
 						break;
 					default :
-					_putchar('%');
-					size++;
-					_putchar(*format);
-					size++;
-					break;
+						_putchar('%');
+						size++;
+						_putchar(*format);
+						size++;
+						break;
 				}
 			}
 		}
@@ -124,7 +124,7 @@ int print_Integer(int num)
 	buffer = malloc(sizeof(int) * numSize);
 
 	if (buffer == NULL)
-		return (0);
+		return (98);
 
 	while (i < numSize)
 	{
