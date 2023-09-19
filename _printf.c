@@ -33,7 +33,7 @@ int _printf(const char *format, ...)
 			{
 				case 's':
 				s = va_arg(args, char *);
-				size+= printString(s);
+				size += printString(s);
 				break;
 				case 'c':
 				c = va_arg(args, int);
@@ -51,7 +51,7 @@ int _printf(const char *format, ...)
 			_putchar(*format);
 		}
 
-		if(specifier != *format &&  *format != '%')
+		if (specifier != *format)
 			size++;
 		format++;
 	}
@@ -98,7 +98,7 @@ int print_Integer(int num)
 	{
 		_putchar('0');
 		size++;
-		return size;
+		return (size);
 	}
 
 	numSize = getIntSize(num);
