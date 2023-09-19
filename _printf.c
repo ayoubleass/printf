@@ -66,7 +66,6 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(*format);
-			size++;
 		}
 
 		if (specifier != *format)
