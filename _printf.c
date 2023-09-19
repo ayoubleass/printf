@@ -125,7 +125,7 @@ int print_Integer(int num)
 	buffer = malloc(sizeof(int) * numSize);
 
 	if (buffer == NULL)
-		return (98);
+		return (-1);
 
 	while (i < numSize)
 	{
