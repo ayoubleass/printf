@@ -35,6 +35,10 @@ int handleSpecifier(char c, va_list args)
 			size = print_integer(va_arg(args, int));
 			break;
 		}
+		case '%':
+			_putchar('%');
+			size++;
+			break;
 	}
 	return (size);
 }
