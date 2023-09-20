@@ -36,9 +36,16 @@ int handleSpecifier(char c, va_list args)
 			break;
 		}
 		case '%':
+		{
 			_putchar('%');
 			size++;
 			break;
+		}
+		case 'b':
+		{
+			size = print_Binary(va_arg(args, unsigned int));
+			break;
+		}
 		default :
 			putchar('%');
 			size++;
