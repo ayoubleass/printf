@@ -39,6 +39,11 @@ int handleSpecifier(char c, va_list args)
 			_putchar('%');
 			size++;
 			break;
+		default :
+			putchar('%');
+			putchar(c);
+			size + 2;
+			break;
 	}
 	return (size);
 }
